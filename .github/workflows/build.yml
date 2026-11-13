@@ -23,5 +23,5 @@ jobs:
       - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
-          name: Hasil-EXE
+          name: hasil-exe
           path: pesanan.exe
