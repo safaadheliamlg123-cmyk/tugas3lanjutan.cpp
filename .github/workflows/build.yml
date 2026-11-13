@@ -1,22 +1,27 @@
 
-name: C++ Build
+name: Build C++ EXE
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Compile C++
-        run: g++ -std=c++17 tugas3lanjutan.cpp -o program
+      - name: Setup compiler
+        uses: ilammy/msvc-dev-cmd@v1
 
-      - name: Run program
-        run: ./program
+      - name: Compile C++
+        run: cl /EHsc /std:c++17 /Fe:pesanan.exe main.cpp
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: Hasil-EXE
+          path: pesanan.exe
