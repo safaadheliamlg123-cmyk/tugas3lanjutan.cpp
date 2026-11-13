@@ -1,0 +1,25 @@
+
+name: C++ Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install G++
+        run: sudo apt-get update && sudo apt-get install -y g++
+
+      - name: Compile C++ program
+        run: g++ -std=c++17 tugas3lanjutan.cpp -o program
+
+      - name: Run program
+        run: ./program
