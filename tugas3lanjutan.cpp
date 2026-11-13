@@ -94,10 +94,10 @@ int main() {
         cout << all << endl;
         cout << endl;
 
-        cout << "Apakah Anda Mau Pesan Lagi? Tekan y/t: ";
+        cout << "Apakah Anda Mau Pesan Lagi? Tekan b/B: ";
         cin >> ulang;
 
-    } while (ulang == "y" || ulang == "t");
+    } while (ulang == "b" || ulang == "B");
 
     system("pause");
     return 0;
