@@ -1,5 +1,4 @@
-
-name: Build C++ EXE
+name: Build EXE C++
 
 on:
   push:
@@ -11,17 +10,17 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup compiler
+      - name: Setup MSVC
         uses: ilammy/msvc-dev-cmd@v1
 
       - name: Compile C++
-        run: cl /EHsc /std:c++17 /Fe:pesanan.exe main.cpp
+        run: cl /EHsc /std:c++17 /O2 tugas6tiketbus.cpp /Fe:stugas6tiketbus.exe
 
       - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
-          name: hasil-exe
-          path: pesanan.exe
+          name: tugas6tiketbus-exe
+          path: tugas6tiketbus.exe
